@@ -1,0 +1,9 @@
+let idade = 21;
+console.log(typeof idade);
+console.log(typeof 5.6);
+console.log(typeof .56);
+
+let estaChovendo = true;
+console.log(typeof estaChovendo);
+console.log(typeof 'eita1');
+console.log(typeof "eita2");

@@ -1,0 +1,5 @@
+const a = 5; //use letra maiuscula em const
+console.log(a);
+
+// a = a+10; //da erro
+console.log(a);
