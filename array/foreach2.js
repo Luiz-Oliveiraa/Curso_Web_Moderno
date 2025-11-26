@@ -1,6 +1,6 @@
 Array.prototype.forEach2 = function(calback){
     for(let i = 0; i < this.length; i++){
-        calback(aprovados[i], i, this)
+        calback(this[i], i, this)
     }
 }
 
