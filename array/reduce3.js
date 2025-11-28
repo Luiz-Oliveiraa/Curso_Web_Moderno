@@ -3,6 +3,10 @@ Array.prototype.reduce2 = function(callback, acumulador){
     let i = (acumulador === undefined ? (acumulador = this[0], 1) : 0);
     //executa1 ',' executa2',' retorna a ultima
 
+    //versão do professor:
+    // const indiceInicial = valorInicial ? 0:1
+    // let acumulador = valorInicial || this[0]
+
     for(; i < this.length; i++){
         acumulador = callback(acumulador, this[i], i, this)
     }
