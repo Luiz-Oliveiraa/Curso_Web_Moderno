@@ -5,10 +5,26 @@ const porta = 3003 //quando 2 computadores vão se comunicar, precisa da porta, 
 
 const express = require('express')
 const app = express()
+const bancoDeDados = require('./bancoDeDados')
+
+app.get('/produtos', (req, res, next) => { //requisição, resposta, next
+    res.send(bancoDeDados.getProdutos())
+    next()
+})
 
 //no POSTMAN, aparece requisição do tipo get, post, etc
-app.get('/produtos', (req, res, next) => { //requisição, resposta, next
-    res.send({nome: 'Notebook', preco: 123.45}) //converte para JSON automáticamente
+//No caso vc digita /produtos/1 por exemple. Seria uma chave
+app.get('/produtos/:id  ', (req, res, next) => { //requisição, resposta, next
+    res.send(bancoDeDados.getProduto(req.params.id)) //converte para JSON automáticamente
+    //params no caso só tem o id, se tivesse colocado :id/:nome, também teria o nome
+})
+
+app.post('/produtos', (req, res, next) => {
+    const produto = bancoDeDados.salvarProduto({
+        nome: req.body.name,
+        preco: req.body.preco
+    })
+    res.send(produto) //JSON
 })
 
 app.listen(porta, () => {
